@@ -1,0 +1,20 @@
+.margingAuth {
+  margin-top: 60px;
+}
+
+.forgotURL {
+  float: right;
+  font-size: 80%;
+  position: relative;
+  top: -20px;
+}
+.panel-body{
+  padding-top:30px
+}
+
+.input-gr{
+  margin-bottom: 25px
+}
+.input-gr-last{
+  margin-bottom: 5px
+}

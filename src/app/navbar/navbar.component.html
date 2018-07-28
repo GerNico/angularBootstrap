@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default info">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-left">
+        <img src="{{brandItem.reference}}" class="logo">
+      </a>
+      <span class="navbar-brand">{{brandItem.label}}</span>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngFor="let item of menuList" [class]="item.theClass"><a href={{item.reference}}>{{item.label}}</a></li>
+      <li class="dropdown" dropdown>
+        <a dropdownToggle role="button">
+            <span [class]="dropDownMenuList.htmlCaptionIcon"></span>
+          {{dropDownMenuList.htmlCaptionLabel}} <span class="caret"></span></a>
+        <ul *dropdownMenu class="dropdown-menu">
+          <li *ngFor="let item2 of dropDownMenuList.listItems">
+            <a [class]="item2.theClass" href={{item2.reference}}>{{item2.label}}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

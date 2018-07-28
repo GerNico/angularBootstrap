@@ -1,0 +1,54 @@
+<div class="container" ng-controller="loginPageController as lpCont">
+  <div id="loginbox" class="mainbox margingAuth col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">Sign In</div>
+        <div class="forgotURL"><a
+          href={{passwordRecovering.reference}}>{{passwordRecovering.label}}</a></div>
+      </div>
+
+      <div class="panel-body">
+
+        <form id="loginform" class="form-horizontal" (ngSubmit)="login(); autorizationForm.reset()" #autorizationForm>
+
+          <div class="input-group input-gr">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" name="userName"
+                   required placeholder="login" [(ngModel)]="user.login">
+          </div>
+
+          <div class="input-group input-gr">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input type="email" class="form-control" name="email"
+                   required placeholder="your email" [(ngModel)]="user.email">
+          </div>
+
+          <div class="input-group input-gr">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" name="password"
+                   required placeholder="password" [(ngModel)]="user.password">
+          </div>
+
+          <div class="input-group input-gr-last">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" name="passwordRe"
+                   required placeholder="repeat password" [(ngModel)]="repeted">
+          </div>
+
+          <div class="input-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="remember" value=true [(ngModel)]="user.toRemember"> Remember me
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-12 controls text-center">
+            <button type="submit" id="btn-login" class="btn btn-success btn-md"
+                    [disabled]="!autorizationForm.checkValidity()">Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
