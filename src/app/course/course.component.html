@@ -1,3 +1,42 @@
-<p>
-  course works!
-</p>
+<div>
+  <div class="ml20">
+    <div class="input-group col-xsm-1"></div>
+    <div class="input-group col-lg-4 col-md-5 col-sm-6">
+      <div class="input-group input-gr-last">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>
+        <input type="password" class="form-control" name="passwordRe"
+               placeholder="Search by name" [(ngModel)]="search">
+      </div>
+      <div class="input-group">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="remember" value=true [(ngModel)]="started"> Already started ?
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead class="theme-dark-blue">
+    <tr>
+      <th scope="col" class="text-primary" *ngFor="let header of headers"><h4 class="text-info">{{header}}</h4>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of courses; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>
+        <img src="{{course.pictureURL}}" class="img-responsive" (click)="selected(i)">
+      </td>
+      <td>
+        <h4 class="text-info"><a (click)="selected(i)">{{course.name}}</a></h4>
+      </td>
+      <td>
+        <h6 class="text-info"><a (click)="selected(i)">{{course.description}}</a>></h6>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
