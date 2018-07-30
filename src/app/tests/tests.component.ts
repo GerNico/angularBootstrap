@@ -4,8 +4,7 @@ interface TestI {
   name: string;
   description: string;
   score: string;
-  opened: boolean;
-  started: boolean;
+  status: string;
 }
 
 @Component({
@@ -19,8 +18,15 @@ export class TestsComponent implements OnInit {
   }
 
   tests: TestI[];
+  courseName: string;
+  icons = {
+    started: 'glyphicon glyphicon-pushpin',
+    notStarted: 'glyphicon glyphicon-unchecked',
+    done: 'glyphicon glyphicon-check',
+  };
 
   ngOnInit() {
+    this.courseName = 'Angular';
     this.tests = [
       {
         name: 'test 1',
@@ -28,9 +34,8 @@ export class TestsComponent implements OnInit {
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
     minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
     commodo consequat.`,
-        score: '27/120',
-        opened: true,
-        started: false
+        score: '120/120',
+        status: this.icons.done,
       },
       {
         name: 'test 2',
@@ -38,9 +43,8 @@ export class TestsComponent implements OnInit {
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
     minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
     commodo consequat.`,
-        score: '37/192',
-        opened: false,
-        started: false
+        score: '0/192',
+        status: this.icons.notStarted,
       },
       {
         name: 'test 3',
@@ -48,15 +52,13 @@ export class TestsComponent implements OnInit {
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
     minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
     commodo consequat.`,
-        score: '0/81',
-        opened: true,
-        started: false
+        score: '31/81',
+        status: this.icons.started,
       }
     ];
   }
 
-  openClose(index: number) {
-    this.tests[index].opened = !this.tests[index].opened;
+  select(index: number) {
     console.log(index);
   }
 }
