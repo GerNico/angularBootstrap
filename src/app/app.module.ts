@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
-// import { QuestionComponent } from './question/question.component';
+import {QuestionComponent} from './question/question.component';
 import {CourseComponent} from './course/course.component';
 // import { UserdetailsComponent } from './userdetails/userdetails.component';
 import {AutorizationComponent} from './autorization/autorization.component';
@@ -15,7 +15,7 @@ import {TestsComponent} from './tests/tests.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    // QuestionComponent,
+    QuestionComponent,
     CourseComponent,
     // UserdetailsComponent,
     AutorizationComponent,
@@ -24,6 +24,7 @@ import {TestsComponent} from './tests/tests.component';
   imports: [
     BrowserModule,
     FormsModule,
+    // ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()

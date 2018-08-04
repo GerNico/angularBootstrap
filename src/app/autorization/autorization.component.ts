@@ -22,7 +22,7 @@ export class AutorizationComponent implements OnInit {
 
   user: User;
   passwordRecovering: LinkItemI;
-  repeted: string;
+  title: string;
 
   ngOnInit() {
     this.user = {
@@ -32,7 +32,7 @@ export class AutorizationComponent implements OnInit {
       status: 'new',
       toRemember: false
     };
-    this.repeted = '';
+    this.title = 'Sign In';
     this.passwordRecovering = {reference: '/root/forgot', label: 'Forgot password?', theClass: ''};
   }
 

@@ -1,3 +1,37 @@
-<p>
-  question works!
-</p>
+<div class="container mt30">
+  <div class="mainbox margingAuth col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+    <div class="panel-group">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar"
+                 aria-valuemin="0" aria-valuemax="100" [style.width.%]="rate">Progress {{rate}}%
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <h4 class="text-center">{{question}}</h4>
+
+          <form (ngSubmit)="submited()">
+            <div class="radio" *ngFor="let option of options; let i=index">
+              <label><input type="radio" [value]="i" name="optradio"
+                            (click)="checkedItem(i)">{{option.text}}</label>
+            </div>
+            <div class="center-block">
+              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="reset" class="btn btn-warning ml20">Clear</button>
+            </div>
+          </form>
+
+          <div class="panel-heading">
+            <ul class="pager">
+              <li class="previous"><a href="#">Previous</a></li>
+              <li class="next"><a href="#">Next</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
