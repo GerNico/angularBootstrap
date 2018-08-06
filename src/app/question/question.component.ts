@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {QuestionsService} from '../shared/questions.service';
 
 export interface OptionI {
   id: number;
@@ -22,25 +23,19 @@ export interface Question {
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnInit {
-  // public thisQuestion: Question;
   public question: string;
-  public status: string;
-  public answerForNoOptions: string;
   public type: string;
   public options: OptionI[];
   @Input() public rate: number;
 
-  constructor() {
+  constructor(private questionService: QuestionsService) {
   }
 
 
-  statusEnum = {yes: 'glyphicon glyphicon-ok-sign', no: 'glyphicon glyphicon-remove-sign', ask: 'glyphicon glyphicon-question-sign'};
   selectedOption: OptionI;
 
   ngOnInit() {
     this.question = 'Since what version of Java Fork Join Thread pool appeared?';
-    this.answerForNoOptions = '';
-    this.type = 'WITH_OPTIONS';
     this.options = [
       {id: 1, isCorrect: false, isSequenceBased: false, numberInSequence: 0, text: 'Java 5'},
       {id: 2, isCorrect: false, isSequenceBased: false, numberInSequence: 0, text: 'Java 6'},
@@ -49,7 +44,7 @@ export class QuestionComponent implements OnInit {
       {id: 5, isCorrect: false, isSequenceBased: false, numberInSequence: 0, text: 'Java 9'},
       {id: 6, isCorrect: false, isSequenceBased: false, numberInSequence: 0, text: 'Java 10'}
     ];
-    this.status = this.statusEnum.ask;
+    this.questionService.getTestById(5).subscribe(q => console.log(q));
   }
 
 

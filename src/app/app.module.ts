@@ -10,6 +10,8 @@ import {CourseComponent} from './course/course.component';
 import {AutorizationComponent} from './autorization/autorization.component';
 import {FormsModule} from '@angular/forms';
 import {TestsComponent} from './tests/tests.component';
+import {HttpModule} from '@angular/http';
+import {QuestionsService} from './shared/questions.service';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,13 @@ import {TestsComponent} from './tests/tests.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     // ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
