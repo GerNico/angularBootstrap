@@ -6,12 +6,11 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
 import {QuestionComponent} from './question/question.component';
 import {CourseComponent} from './course/course.component';
-// import { UserdetailsComponent } from './userdetails/userdetails.component';
 import {AutorizationComponent} from './autorization/autorization.component';
 import {FormsModule} from '@angular/forms';
 import {TestsComponent} from './tests/tests.component';
-import {HttpModule} from '@angular/http';
 import {QuestionsService} from './shared/questions.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,15 +18,13 @@ import {QuestionsService} from './shared/questions.service';
     NavbarComponent,
     QuestionComponent,
     CourseComponent,
-    // UserdetailsComponent,
     AutorizationComponent,
     TestsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    // ReactiveFormsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()

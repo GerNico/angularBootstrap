@@ -1,0 +1,3 @@
+export enum QuestionType {
+  WITH_OPTIONS, WITHOUT_OPTIONS, SEQUENTIAL
+}
