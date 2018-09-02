@@ -42,8 +42,13 @@
               </label>
             </div>
           </div>
+
+          <div class="input-group">
+            <input type="file" name="file" #file (change)="fileChange($event.target.files)">
+          </div>
           <div class="col-sm-12 controls text-center">
             <button type="submit" id="btn-login" class="btn btn-success btn-md"
+                    (click)="fileSubmit()"
                     [disabled]="!autorizationForm.checkValidity()">Login
             </button>
           </div>

@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {QuestionsService} from '../shared/questions.service';
 import {Test} from '../shared/test';
 import {Option} from '../shared/option';
+import {QuestionType} from '../shared/questionType';
+import {Question} from '../shared/question';
 
 @Component({
   selector: 'app-question',
@@ -18,14 +20,13 @@ export class QuestionComponent implements OnInit {
   constructor(private questionService: QuestionsService) {
   }
 
-
   ngOnInit() {
     this.questionService.getTestById(5)
       .subscribe(test => {
         this.myTest = test;
-        this.question = this.myTest.questions[1].question;
-        this.options = this.myTest.questions[1].options;
-        console.log(this.myTest);
+        const filtered: Question[] = this.myTest.questions.filter(question => question.type === QuestionType.WITHOUT_OPTIONS);
+        this.question = filtered[0].question;
+        this.options = filtered[0].options;
       });
 
   }

@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LinkItemI} from '../app.component';
+import {QuestionsService} from '../shared/questions.service';
 
 interface User {
   login: string;
@@ -17,12 +18,14 @@ interface User {
 })
 export class AutorizationComponent implements OnInit {
 
-  constructor() {
+  constructor(public questionService: QuestionsService) {
   }
 
   user: User;
   passwordRecovering: LinkItemI;
   title: string;
+  file: File;
+  @ViewChild('file') myFile;
 
   ngOnInit() {
     this.user = {
@@ -36,8 +39,15 @@ export class AutorizationComponent implements OnInit {
     this.passwordRecovering = {reference: '/root/forgot', label: 'Forgot password?', theClass: ''};
   }
 
+  fileSubmit() {
+    this.questionService.submitFile(this.file).subscribe(item => console.log(item));
+  }
+
   login() {
     console.log(this.user);
   }
 
+  fileChange(files: FileList) {
+    this.file = files.item(0);
+  }
 }
